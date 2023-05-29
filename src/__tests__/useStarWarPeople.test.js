@@ -1,4 +1,4 @@
-import { act, render, screen , renderHook} from '@testing-library/react';
+import { screen , renderHook} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import useStarWarPeoples from '../hooks/useStarWarPeoples';

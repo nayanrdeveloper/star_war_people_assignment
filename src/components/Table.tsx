@@ -1,11 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUserCircle,
-  faQuestionCircle,
   faExclamationCircle,
   faSpinner,
   faWarning,
-  faMobileAndroid,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchInput from "./SearchInput";
 import Pagination from "./Pagination";
@@ -21,7 +18,6 @@ function Table() {
     loading,
     error,
     sortType,
-    sortField,
     searchQuery,
     handleSort,
     handlePreviousPage,
