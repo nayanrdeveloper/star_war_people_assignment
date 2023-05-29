@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { PersonType, StarWarPeoplesHookType } from "../types";
 
@@ -12,7 +12,7 @@ function useStarWarPeoples(): StarWarPeoplesHookType {
   const [sortType, setSortType] = useState<string>("");
   const [sortField, setSortField] = useState<string>("");
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setLoading(true);
       setError(false);
@@ -27,7 +27,7 @@ function useStarWarPeoples(): StarWarPeoplesHookType {
     } finally {
       setLoading(false);
     }
-  };
+  }, [currentPage, searchQuery]);
 
   const handleSort = (field: string) => {
     const sortedPeoples = [...peoples];
@@ -63,7 +63,7 @@ function useStarWarPeoples(): StarWarPeoplesHookType {
 
   useEffect(() => {
     fetchData();
-  }, [currentPage, searchQuery]);
+  }, [currentPage, searchQuery, fetchData]);
 
   return {
     peoples,
